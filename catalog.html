@@ -8,6 +8,7 @@
     <header>
       <nav>
         <a href="index.html">
+          <span class="visually-hidden">На главную страницу</span>
           <img src="img/logo.svg" width="154" height="64" alt="Логотип Gllacy">
         </a>
         <ul>
@@ -24,27 +25,46 @@
           <li><a href="blank.html">Доставка и оплата</a></li>
           <li><a href="blank.html">О компании</a></li>
         </ul>
-        <a href="blank.html">
+        <button type="button">
           Поиск
-          <!-- Здесь будет форма поиска -->
-        </a>
-        <a href="blank.html">
+        </button>
+        <form action="https://echo.htmlacademy.ru" method="GET">
+          <label class="visually-hidden" for="search-text">Введите текст для поиска</label>
+          <input id="search-text" type="text" name="search-text" placeholder="Крем-брюле" required>
+        </form>
+        <button type="button">
           Вход
-          <!-- Здесь будет форма авторизации -->
-        </a>
+        </button>
+        <form action="https://echo.htmlacademy.ru" method="POST">
+          <div>
+            <label class="visually-hidden" for="login-email">Email</label>
+            <input id="login-email" type="email" name="login-email" placeholder="email@example.com" required>
+          </div>
+          <div>
+            <label class="visually-hidden" for="login-password">Пароль</label>
+            <input id="login-password" type="password" name="login-password" placeholder="******" required>
+          </div>
+          <button type="submit">Войти</button>
+          <a href="blank.html">Забыли пароль?</a>
+          <a href="blank.html">Новая регистрация</a>
+        </form>
         <a href="blank.html">2 товара</a>
         <section>
           <h2>Корзина</h2>
           <ul>
             <li>
-              <button>Удалить из корзины</button>
+              <button type="button">
+                <span class="visually-hidden">Удалить из корзины</span>
+              </button>
               <img src="img/product-in-cart1.jpg" width="33" height="33" alt="Пломбир с апельсиновым джемом">
               <p>Пломбир с апельсиновым джемом</p>
               <p>1,5 кг х 200 руб.</p>
               <p>300 руб.</p>
             </li>
             <li>
-              <button>Удалить из корзины</button>
+              <button type="button">
+                <span class="visually-hidden">Удалить из корзины</span>
+              </button>
               <img src="img/product-in-cart2.jpg" width="33" height="33" alt="Клубничный пломбир с присыпкой из белого шоколада">
               <p>Клубничный пломбир с присыпкой из белого шоколада</p>
               <p>1,5 кг х 300 руб.</p>
@@ -69,7 +89,76 @@
 
       <section>
         <h2>Фильтры</h2>
-        <!-- Здесь будет форма с фильтрами -->
+        <form action="https://echo.htmlacademy.ru" action="GET">
+          <label for="filter-sorting">Сортировка:</label>
+          <select id="filter-sorting" name="filter-sorting">
+            <option value="popularity">по популярности</option>
+            <option value="cheap-first">сначала недорогие</option>
+            <option value="expensive-first">сначала дорогие</option>
+            <option value="richness">по жирности</option>
+          </select>
+          <div>
+            <p>
+              Цена:
+              <label class="visually-hidden" for="price-min">Минимальная цена</label>
+              <input id="price-min" type="number" name="price-min" placeholder="100" min="0" max="1000" required>
+              <span> ₽ - </span>
+              <label class="visually-hidden" for="price-max">Максимальная цена</label>
+              <input id="price-max" type="number" name="price-max" placeholder="500" min="0" max="1000" required>
+              <span> ₽</span>
+            </p>
+            <div>
+              <!-- Здесь будет слайдер с ползунками -->
+            </div>
+          </div>
+          <fieldset>
+            <legend>Жирность:</legend>
+            <ul>
+              <li>
+                <input id="richness-0" type="radio" name="richness-value" value="0">
+                <label for="richness-0">0%</label>
+              </li>
+              <li>
+                <input id="richness-below-10" type="radio" name="richness-value" value="below 10" checked>
+                <label for="richness-below-10">до 10%</label>
+              </li>
+              <li>
+                <input id="richness-below-30" type="radio" name="richness-value" value="below 30">
+                <label for="richness-below-30">до 30%</label>
+              </li>
+              <li>
+                <input id="richness-above-30" type="radio" name="richness-value" value="above 30">
+                <label for="richness-above-30">выше 30%</label>
+              </li>
+            </ul>
+          </fieldset>
+          <fieldset>
+            <legend>Наполнители:</legend>
+            <ul>
+              <li>
+                <input id="filler-chocolate" type="checkbox" name="filler-chocolate" checked>
+                <label for="filler-chocolate">шоколадные</label>
+              </li>
+              <li>
+                <input id="filler-sugar-powders" type="checkbox" name="filler-sugar-powders" checked>
+                <label for="filler-sugar-powders">сахарные присыпки</label>
+              </li>
+              <li>
+                <input id="filler-fruits" type="checkbox" name="filler-fruits">
+                <label for="filler-fruits">фрукты</label>
+              </li>
+              <li>
+                <input id="filler-syrups" type="checkbox" name="filler-syrups">
+                <label for="filler-syrups">сиропы</label>
+              </li>
+              <li>
+                <input id="filler-jams" type="checkbox" name="filler-jams">
+                <label for="filler-jams">джемы</label>
+              </li>
+            </ul>
+          </fieldset>
+          <button type="submit">Применить</button>
+        </form>
       </section>
 
       <section>
